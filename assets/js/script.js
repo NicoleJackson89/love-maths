@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        } 
+    })
+
     runGame("addition");
 
 });
@@ -24,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = ""; //so that after clicking submit the answer box is emptied by setting its value to an empty string
+    document.getElementById("answer-box").focus(); // setting the focus, the answer box with have the curser inside everytime so it doenst need to be clicked
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
